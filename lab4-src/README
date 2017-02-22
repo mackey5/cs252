@@ -1,0 +1,14 @@
+Readme lab4
+
+1.5: printC is in an infinit loop, and the threads are called after the function call. Therefore, the threads never get called, and it will always print "C".
+
+
+ 							System  (Kernel) Time  	User Time 	Real Time
+	pthread_mutex (count) 	  	  	 	1.68			1.38		1.56		
+	spin lock (count_spin with thr_yield) 	  	.12  	 		.38 		.28
+	spin_lock (count_spin without thr_yield)  	0			1.88		.99 
+
+3.1: When thr_yield is not called, all of the program is executed in User mode, thus increasing the amount of time it takes. System mode is only used when thr_yiled is called.
+Spin locks give up the CPU, and mutex locks do not. Therefore, the system time is less in a spin lock than a mutex lock.
+
+
